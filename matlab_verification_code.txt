@@ -1,0 +1,33 @@
+clc; clear;
+
+% SAME input sequence used in Verilog testbench
+x = [10 20 30 40 50 60 70 80];
+
+% FIR coefficients (same as Verilog)
+h = [1 1 1 1] / 4;
+
+% MATLAB FIR filter output
+y = filter(h, 1, x);
+
+% Display results
+disp('Input Signal:');
+disp(x);
+
+disp('MATLAB FIR Output:');
+disp(y);
+
+% Plot input vs output
+figure;
+subplot(2,1,1);
+stem(x, 'filled');
+title('Input Signal');
+xlabel('Sample');
+ylabel('Amplitude');
+grid on;
+
+subplot(2,1,2);
+stem(y, 'filled');
+title('FIR Filter Output (MATLAB)');
+xlabel('Sample');
+ylabel('Amplitude');
+grid on;
